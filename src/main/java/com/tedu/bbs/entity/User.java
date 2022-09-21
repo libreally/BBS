@@ -1,11 +1,11 @@
 package com.tedu.bbs.entity;
 
-import java.io.Serializable;
+
 
 /**
  * 使用当前类实例表示一个注册用户
  */
-public class User implements Serializable {
+public class User {
     private String username;
     private String password;
     private String nickname;

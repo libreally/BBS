@@ -73,8 +73,6 @@ public class ArticleController {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1,Integer.parseInt(uid));
             ResultSet rs = ps.executeQuery();
-            String username = rs.getString("u.username");
-            String title = rs.getString("a.title");
             response.setContentType("text/html;charset=utf-8");
             PrintWriter pw = response.getWriter();
             pw.println("<!DOCTYPE html>");
@@ -85,15 +83,20 @@ public class ArticleController {
             pw.println("</head>");
             pw.println("<body>");
             pw.println("    <center>");
-            pw.println("        <h1>" +username + "的文章</h1>");
+            pw.println("        <h1>xxx的文章</h1>");
             pw.println("        <table border=\"1\">");
             pw.println("            <tr>");
             pw.println("                <td>标题</td>");
             pw.println("                <td>作者</td>");
             pw.println("            </tr>");
-            while (rs.next()) {
-                pw.println("                <td>"+title+"</td>");
-                pw.println("                <td>"+username+"</td>");
+            while(rs.next()) {
+                String uname = rs.getString(1);
+                int aid = rs.getInt(2);
+                String title = rs.getString(3);
+                pw.println("<tr>");
+                pw.println("<td>"+title+"</td>");
+                pw.println("<td>"+uname+"</td>");
+                pw.println("</tr>");
             }
             pw.println("        </table>");
             pw.println("    </center>");
