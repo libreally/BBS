@@ -207,7 +207,8 @@ public class UserController {
             e.printStackTrace();
         }
     }*/
-       /*      @RequestMapping("/regUser") public void reg(HttpServletRequest request, HttpServletResponse response) {
+       /*      @RequestMapping("/regUser")
+       public void reg(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("开始处理注册!!!!");
         String username=request.getParameter("username");
         String password=request.getParameter("password");
